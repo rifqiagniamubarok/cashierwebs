@@ -1,0 +1,62 @@
+.stockmanagement-component h3 {
+  color: #40916c;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.stockmanagement-component tbody input {
+  display: inline;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  width: 40px;
+  height: auto;
+  padding: 2px;
+  margin: auto 3px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.stockmanagement-component tbody button {
+  display: inline;
+  border-radius: 4px;
+  width: 25px;
+  color: white;
+  background-color: #40916c;
+  border: none;
+}
+.clearstock-button {
+  background-color: #ff9d0b;
+  color: white;
+  margin: 10px auto;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 40px;
+  display: block;
+  min-width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.clearstock-button:hover {
+  background-color: #ac6a07;
+}
+.addstock-button {
+  background-color: #40916c;
+  color: white;
+  margin: 10px auto;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px 40px;
+  display: block;
+  min-width: 100%;
+  border: none;
+  border-radius: 10px;
+}
+.addstock-button:hover {
+  background-color: #23533e;
+}

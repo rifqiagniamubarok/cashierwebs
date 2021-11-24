@@ -1,0 +1,51 @@
+.itemmanagement-component h3 {
+  color: #40916c;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+.itemmanagement-component form {
+  font-size: medium;
+}
+
+.itemmanagement-component input {
+  background-color: #fbfbfb;
+  font-size: 24px;
+  margin-bottom: 23px;
+  box-sizing: 1px;
+  font-weight: normal;
+  width: 100%;
+  padding: 7px 10px;
+  border-radius: 10px;
+}
+
+.itemmanagement-component .gr-button {
+  background-color: #40916c;
+  color: white;
+  margin: 10px auto;
+  font-size: 18px;
+  padding: 10px 40px;
+  font-weight: bold;
+  display: block;
+  min-width: 100%;
+  border: none;
+}
+.itemmanagement-component .gr-button:hover {
+  background-color: #265741;
+  color: rgb(224, 220, 220);
+}
+.itemmanagement-component .yl-button {
+  background-color: #ff9d0b;
+  color: white;
+  margin: 10px auto;
+  font-size: 18px;
+  padding: 10px 40px;
+  font-weight: bold;
+  display: block;
+  min-width: 100%;
+  border: none;
+}
+.itemmanagement-component .yl-button:hover {
+  background-color: #c77905;
+  color: rgb(224, 220, 220);
+}

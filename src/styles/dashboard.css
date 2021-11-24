@@ -1,0 +1,100 @@
+.order-bingkai-component {
+  margin-top: 30px;
+  padding: 0px;
+  background: #ffffff;
+  /* shadow bag */
+
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+}
+.table-cost {
+  padding: 1px 5px 50px 5px;
+}
+.table-cost td {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+}
+.order-bingkai-component Table {
+  padding: 10px;
+  margin: 5px 0px;
+}
+.total-cost {
+  background-color: #40916c;
+  padding: 20px;
+}
+.total-cost h1 {
+  color: white;
+  font-size: 48px;
+}
+.order-bingkai-component tbody input {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  width: 40px;
+  height: auto;
+  padding: 2px;
+  margin: auto 3px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.order-bingkai-component tbody button {
+  border-radius: 4px;
+  width: 25px;
+  color: white;
+  background-color: #40916c;
+  border: none;
+}
+.order-bingkai-component h4 {
+  padding: 5px 15px 5px 15px;
+}
+.payment-order {
+  padding: 0px 15px 6px 15px;
+}
+.payment-order p {
+  display: inline;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+}
+.payment-order input {
+  height: 30px;
+  width: 260px;
+  padding: 2px;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 28px;
+  margin: 0 3px 30px 3px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.payment-order button {
+  display: block;
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  padding: 15px;
+  margin-bottom: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+}
+.yl-button {
+  background-color: #ff9d0b;
+}
+.yl-button:hover {
+  background-color: #c97a05;
+}
+.gr-button {
+  background-color: #40916c;
+}
+.gr-button:hover {
+  background-color: #285e46;
+}
