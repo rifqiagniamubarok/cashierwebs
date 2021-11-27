@@ -10,3 +10,14 @@
   text-align: center;
   color: #40916c;
 }
+.notfound-page a {
+  text-decoration: none;
+  font-size: 30px;
+  font-family: Poppins;
+  font-weight: bold;
+  text-align: center;
+  color: #40916c;
+}
+.notfound-page a:hover {
+  color: #214d39;
+}

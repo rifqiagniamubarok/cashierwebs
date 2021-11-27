@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import ListCommonProduct from '../components/ListCommonProduct';
+import ListDashboardProduct from '../components/ListDashboardProduct';
 import NavbarComponent from '../components/NavbarComponent';
 import OrderProduct from '../components/OrderProduct';
 import SearchDashboard from '../components/SearchDashboard';
+import { parseCookies } from 'nookies';
+import { useNavigate } from 'react-router-dom';
 
 function DashboardPage() {
+  const cookies = parseCookies();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (cookies.id === undefined) {
+      navigate('/');
+    }
+  });
+  console.log(cookies);
   return (
     <div>
       <NavbarComponent />
@@ -16,10 +26,10 @@ function DashboardPage() {
               <SearchDashboard />
             </c0l>
             <Col>
-              <ListCommonProduct />
+              <ListDashboardProduct />
             </Col>
           </Col>
-          <Col xs={5}>
+          <Col>
             <OrderProduct />
           </Col>
         </Row>

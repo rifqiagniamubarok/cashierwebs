@@ -1,30 +1,9 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import { gql, useQuery } from '@apollo/client';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
 import { FaEdit } from 'react-icons/fa';
 
-const productAdmin = gql`
-  query MyQuery {
-    products {
-      id
-      name
-      price
-      quantity
-      unit
-      purchase_price
-      userProduct {
-        id
-        company_name
-      }
-    }
-  }
-`;
-function ListAdminProduct() {
-  const { loading, error, data } = useQuery(productAdmin);
-
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+function ListAdminProduct({ data, handleItemEdit, handleDelete }) {
   return (
     <div className="bingkai-component">
       <Table>
@@ -40,17 +19,22 @@ function ListAdminProduct() {
           </tr>
         </thead>
         <tbody>
-          {data.products.map((item, idx) => (
-            <tr>
+          {data.products.map((product, idx) => (
+            <tr key={idx}>
               <td>{idx + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.purchase_price}</td>
-              <td>{item.price}</td>
-              <td>{item.unit}</td>
-              <td>{item.quantity}</td>
+              <td>{product.name}</td>
+              <td>{product.purchase_price}</td>
+              <td>{product.price}</td>
+              <td>{product.unit}</td>
+              <td>{product.quantity}</td>
               <td>
-                <FaEdit />
-                <RiDeleteBin6Fill />
+                <FaEdit
+                  onClick={() => {
+                    handleItemEdit(product.id, product.name, product.purchase_price, product.price, product.unit);
+                  }}
+                  style={{ cursor: 'pointer', marginRight: '3px' }}
+                />
+                <RiDeleteBin6Fill onClick={() => handleDelete(product.id)} style={{ cursor: 'pointer' }} />
               </td>
             </tr>
           ))}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-function ListStockProduct() {
+function ListStockProduct({ data, handleInsertStockMoment }) {
   return (
     <div className="bingkai-component">
       <Table>
@@ -12,19 +12,23 @@ function ListStockProduct() {
             <th>Purchase Price</th>
             <th>Price</th>
             <th>Unit</th>
-            <th>Stock</th>
-            <th></th>
+            <th>Qty</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>beras</td>
-            <td>Rp.20.0000</td>
-            <td>Rp.30.0000</td>
-            <td>kg</td>
-            <td>100</td>
-          </tr>
+          {data.products.map((product, idx) => (
+            <tr key={product.id}>
+              <td>{idx + 1}</td>
+              <td>{product.name}</td>
+              <td>{product.purchase_price}</td>
+              <td>{product.price}</td>
+              <td>{product.unit}</td>
+              <td>{product.quantity}</td>
+              <td>
+                <button onClick={() => handleInsertStockMoment(idx, product.id, product.name, product.quantity)}>Add Stock</button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

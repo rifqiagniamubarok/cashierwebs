@@ -7,7 +7,7 @@ function SearchDashboard() {
       <form>
         <input placeholder="search" />
         <GoSearch />
-        <button type="submit">Seearch</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );

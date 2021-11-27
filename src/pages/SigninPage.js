@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
 import '../styles/signin.css';
-import { gql, useQuery } from '@apollo/client';
+import { gql, useLazyQuery } from '@apollo/client';
 import LoadingPage from './LoadingPage';
+import { useNavigate } from 'react-router-dom';
+import { setCookie } from 'nookies';
 
 const userAccount = gql`
-  query MyQuery {
-    users {
+  query MyQuery($username: bpchar!, $pass: bpchar!) {
+    users(where: { username: { _eq: $username }, password: { _eq: $pass } }) {
       id
-      password
       company_name
-      username
     }
   }
 `;
@@ -19,10 +19,25 @@ function SigninPage() {
   const [usernameLogin, setUsernameLogin] = useState('');
   const [passwordLogin, setPasswordLogin] = useState('');
   const [unregistered, setUnregistered] = useState(true);
-  const { loading, error, data } = useQuery(userAccount);
+  const [getLogin, { loading, error }] = useLazyQuery(userAccount, {
+    onCompleted: (data) => {
+      setCookie(null, 'id', data.users[0].id);
+      setCookie(null, 'name', data.users[0].company_name);
+      navigate('/dashboards');
+      // console.log(data);
+    },
+  });
+  const navigate = useNavigate();
+  // const cookies = parseCookies();
+
+  // useEffect(() => {
+  //   if (cookies.id !== undefined) {
+  //     navigate('/dashboards');
+  //   }
+  // });
 
   if (loading) return <LoadingPage />;
-  if (error) return `Error! ${error.message}`;
+  if (error) return `Error! ${error} ${setUnregistered(false)}`;
 
   const handleChangeUsername = (e) => {
     setUsernameLogin(e.target.value);
@@ -33,13 +48,22 @@ function SigninPage() {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    data.users.map((item) => {
-      if (item.username === usernameLogin && item.password === passwordLogin) {
-        console.log('sukse');
-      } else {
-        setUnregistered(false);
-      }
+    getLogin({
+      variables: {
+        username: usernameLogin,
+        pass: passwordLogin,
+      },
     });
+    // data.users.map((item) => {
+    //   if (item.username === usernameLogin && item.password === passwordLogin) {
+    //     setCookie(null, 'id', item.id);
+    //     setCookie(null, 'name', item.company_name);
+    //     navigate('/dashboards');
+    //   } else {
+    //     // .
+    //     setUnregistered(false);
+    //   }
+    // });
   };
 
   return (

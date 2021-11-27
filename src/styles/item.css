@@ -49,3 +49,18 @@
   background-color: #c77905;
   color: rgb(224, 220, 220);
 }
+.itemmanagement-component .cc-button {
+  background-color: #ff1100;
+  color: white;
+  margin: 10px auto;
+  font-size: 18px;
+  padding: 10px 40px;
+  font-weight: bold;
+  display: block;
+  min-width: 100%;
+  border: none;
+}
+.itemmanagement-component .cc-button:hover {
+  background-color: #a80b00;
+  color: rgb(224, 220, 220);
+}
