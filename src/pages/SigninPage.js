@@ -21,10 +21,14 @@ function SigninPage() {
   const [unregistered, setUnregistered] = useState(true);
   const [getLogin, { loading, error }] = useLazyQuery(userAccount, {
     onCompleted: (data) => {
-      setCookie(null, 'id', data.users[0].id);
-      setCookie(null, 'name', data.users[0].company_name);
-      navigate('/dashboards');
-      // console.log(data);
+      if (data.users.length === 0) {
+        setUnregistered(false);
+      } else {
+        // alert(data.users);
+        setCookie(null, 'id', data.users[0].id);
+        setCookie(null, 'name', data.users[0].company_name);
+        navigate('/dashboards');
+      }
     },
   });
   const navigate = useNavigate();
@@ -37,7 +41,10 @@ function SigninPage() {
   // });
 
   if (loading) return <LoadingPage />;
-  if (error) return `Error! ${error} ${setUnregistered(false)}`;
+  if (error) return `${setUnregistered(false)}`;
+  // if (error) {
+  //   setUnregistered(false);
+  // }
 
   const handleChangeUsername = (e) => {
     setUsernameLogin(e.target.value);
@@ -77,7 +84,7 @@ function SigninPage() {
             <h2>Sing In</h2>
             <input type="text" placeholder="Enter Username" value={usernameLogin} onChange={handleChangeUsername} />
             <input type="password" placeholder="Enter Password" value={passwordLogin} onChange={handleChangePassword} />
-            <p>{unregistered ? '' : "username or password that you've entered is incorrect"}</p>
+            <p>{unregistered === true ? '' : "username or password that you've entered is incorrect"}</p>
             <button type="submit">Next</button>
             <a href="/signup">Sign Up</a>
           </form>

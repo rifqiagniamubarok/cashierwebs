@@ -6,8 +6,8 @@ import OrderProduct from '../components/OrderProduct';
 import SearchDashboard from '../components/SearchDashboard';
 import { parseCookies } from 'nookies';
 import { useNavigate } from 'react-router-dom';
-import { gql, useQuery, useMutation } from '@apollo/client';
 import swal from 'sweetalert';
+import { gql, useQuery, useMutation } from '@apollo/client';
 
 const productCommon = gql`
   query MyQuery($userLoginId: Int!) {
@@ -192,7 +192,8 @@ function DashboardPage() {
           setValueOrderTotalCost(0);
           setValueOrderTotalPay(0);
           setValueOrderPayCostBool(true);
-          navigate('/checkout');
+
+          navigate(`/checkout/${valueOrderInput[0].orderIdx}`);
         } else {
           swal('Your imaginary file is safe!');
         }
