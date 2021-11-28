@@ -104,6 +104,7 @@ function StockPage() {
         qty: valueQtyOld,
         qtyadd: parseInt(valueQtyNew),
         qtytotal: parseInt(parseInt(valueQtyOld) + parseInt(valueQtyNew)),
+        stockInIdx: data.stock_ins.length + 1,
       },
     ]);
 
@@ -123,6 +124,7 @@ function StockPage() {
     // setValueBool(false);
   };
   const handleOnAddStockIn = (objectss) => {
+    inserStockIn();
     swal({
       title: 'Are you sure ?',
       text: 'Ur product quantity will update',
@@ -133,15 +135,13 @@ function StockPage() {
         swal('Poof! Your imaginary file has been deleted!', {
           icon: 'success',
         });
-        inserStockIn();
-
         objectss.map((stock) => {
           insertStockInDetail({
             variables: {
               objectDetails: {
                 product_id: stock.id,
                 qty: stock.qtyadd,
-                stock_ins_id: data.stock_ins.length,
+                stock_ins_id: stock.stockInIdx,
               },
             },
           });

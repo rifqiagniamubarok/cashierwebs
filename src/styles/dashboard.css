@@ -107,8 +107,12 @@
   width: 100%;
   padding: 10px 30px;
 }
+.inputorder-line span {
+  margin-right: 10px;
+}
 .inputorder-line input {
   color: white;
+  text-align: center;
   width: 20%;
   background-color: transparent;
   border-top: none;

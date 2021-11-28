@@ -5,6 +5,7 @@ import ItemPage from './pages/ItemPage';
 import SignupPage from './pages/SignupPage';
 import StockPage from './pages/StockPage';
 import NotFoundPage from './pages/NotFoundPage';
+import CheckoutPage from './pages/CheckoutPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/items" element={<ItemPage />} />
         <Route path="/stocks" element={<StockPage />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
