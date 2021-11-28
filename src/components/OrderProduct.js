@@ -25,17 +25,20 @@ function OrderProduct() {
               <td>Beras</td>
               <td style={{ color: '#F77F00', fontWeight: '700' }}>Rp.60.000</td>
               <td style={{ color: '#40916C', fontWeight: '700' }}>Rp.30.000</td>
-              <td className="text-center">
-                <button>-</button>
-                <input />
-                <button>+</button>
-              </td>
+              <td className="text-center">1</td>
             </tr>
           </tbody>
         </Table>
       </div>
+      <div className="inputorder-line">
+        <span> Beras </span>
+        <span> 20000 </span>
+        <span>
+          <input />
+          <button>add</button>
+        </span>
+      </div>
       <div>
-        <hr />
         <h4>Total Cost : Rp. 400.000</h4>
         <hr />
       </div>

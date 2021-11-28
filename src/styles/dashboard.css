@@ -98,3 +98,26 @@
 .gr-button:hover {
   background-color: #285e46;
 }
+.inputorder-line {
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  color: white;
+  background-color: #219ebc;
+  width: 100%;
+  padding: 10px 30px;
+}
+.inputorder-line input {
+  color: white;
+  width: 20%;
+  background-color: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: white;
+}
+.inputorder-line button {
+  color: white;
+  background-color: transparent;
+  border: none;
+}

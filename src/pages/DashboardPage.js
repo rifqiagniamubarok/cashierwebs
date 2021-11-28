@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import ListDashboardProduct from '../components/ListDashboardProduct';
 import NavbarComponent from '../components/NavbarComponent';
@@ -10,6 +10,10 @@ import { useNavigate } from 'react-router-dom';
 function DashboardPage() {
   const cookies = parseCookies();
   const navigate = useNavigate();
+  const [valueOrderName, setValueOrderName] = useState('');
+  const [valueOrderPrice, setValueOrderPrice] = useState(0);
+  const [valueOrderQty, setValueOrderQty] = useState(0);
+
   useEffect(() => {
     if (cookies.id === undefined) {
       navigate('/');

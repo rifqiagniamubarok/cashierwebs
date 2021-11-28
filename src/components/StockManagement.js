@@ -1,13 +1,15 @@
 import React from 'react';
 import '../styles/stock.css';
-import { Table } from 'react-bootstrap';
+import { Table, Col } from 'react-bootstrap';
 import { RiDeleteBin6Fill } from 'react-icons/ri';
+// import { width } from 'dom-helpers';
+// import { Button } from 'react-bootstrap';
 
-function StockManagement({ stockMoment, inputStockMoment, handleOnChangeInput }) {
+function StockManagement({ stockMoment, valueIdx, valueId, valueName, valueUnit, valueQtyOld, valueQtyNew, handleOnChangeValueQtyNew, valueBool, handleInsertStockMoment, handleClearAllValue, handleClearOneValue, handleOnAddStockIn }) {
   return (
     <div className="bingkai-component stockmanagement-component">
       <h3>Stock Management</h3>
-      <div>
+      <div className="table-s">
         <Table hover>
           <thead>
             <tr>
@@ -17,26 +19,43 @@ function StockManagement({ stockMoment, inputStockMoment, handleOnChangeInput })
               <th>Add Qty</th>
             </tr>
           </thead>
+
           <tbody>
-            {stockMoment.map((stokIn, idx) => (
+            {stockMoment.map((stokIn, idc) => (
               <tr>
-                <td>{idx + 1}</td>
+                <td>{idc + 1}</td>
                 <td>{stokIn.name}</td>
                 <td>{stokIn.qty}</td>
+                <td>{stokIn.qtyadd}</td>
                 <td>
-                  <input type="number" value={inputStockMoment[idx]} onChange={handleOnChangeInput} />
-                </td>
-                <td>
-                  <RiDeleteBin6Fill />
+                  <RiDeleteBin6Fill onClick={() => handleClearOneValue(stokIn.idx)} />
                 </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </div>
+      <hr />
+      {valueBool === true ? (
+        <div className="line-ValueInput ">
+          <Col style={{ marginRight: '20%', marginLeft: '10px' }}>{valueName}</Col>
+          <Col className="offset">
+            <span>
+              <input type="number" value={valueQtyNew} onChange={handleOnChangeValueQtyNew} />
+              <button onClick={handleInsertStockMoment}>add</button>
+            </span>
+          </Col>
+        </div>
+      ) : (
+        <span></span>
+      )}
       <div>
-        <button className="clearstock-button">CLEAR</button>
-        <button className="addstock-button">ADD</button>
+        <button className="clearstock-button" onClick={handleClearAllValue}>
+          CLEAR
+        </button>
+        <button className="addstock-button" onClick={() => handleOnAddStockIn(stockMoment)}>
+          ADD
+        </button>
       </div>
     </div>
   );

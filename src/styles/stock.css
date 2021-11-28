@@ -18,6 +18,9 @@
   border-left: none;
   border-right: none;
 }
+.stockmanagement-component .table-s {
+  padding-bottom: 30px;
+}
 .stockmanagement-component tbody button {
   display: inline;
   border-radius: 4px;
@@ -59,4 +62,35 @@
 }
 .addstock-button:hover {
   background-color: #23533e;
+}
+.line-ValueInput {
+  font-family: Poppins;
+  font-style: normal;
+  font-size: 20px;
+  padding: 10px;
+  background-color: #219ebc;
+  /* display: inline; */
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+}
+.line-ValueInput input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: white;
+  text-align: center;
+  color: white;
+  background-color: transparent;
+  width: 18%;
+}
+.line-ValueInput div {
+  display: inline;
+}
+
+.line-ValueInput button {
+  /* align-items: center; */
+  color: white;
+  background-color: transparent;
+  border: none;
 }

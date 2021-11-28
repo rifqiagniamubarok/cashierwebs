@@ -17,7 +17,7 @@ function NavbarComponent() {
           <Nav className="ms-auto navbar-component-item">
             <Nav.Link href="/dashboards">Dashboard</Nav.Link>
             <Nav.Link href="/items ">Items</Nav.Link>
-            <Nav.Link href="/stock">Stock</Nav.Link>
+            <Nav.Link href="/stocks">Stock</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.3">History of purchases</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">History of Sales</NavDropdown.Item>
