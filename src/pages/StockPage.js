@@ -84,6 +84,8 @@ function StockPage() {
   const [valueQtyOld, setValueQtyOld] = useState(0);
   const [valueQtyNew, setValueQtyNew] = useState(1);
   const [valueBool, setValueBool] = useState(false);
+  const [searchObject, setSearchObject] = useState('');
+  const [searchObjectBool, setSearchObjectBool] = useState(false);
 
   const handleInsertValueStockMoment = (idx, idtake, nametake, qtytake, unittake) => {
     setValueIdx(idx);
@@ -123,6 +125,16 @@ function StockPage() {
     setStockMoment(newStockMoment);
     // setValueBool(false);
   };
+
+  const handleSearchObject = (e) => {
+    setSearchObject(e.target.value);
+    if (searchObject === '') {
+      setSearchObjectBool(false);
+    } else {
+      setSearchObjectBool(true);
+    }
+  };
+
   const handleOnAddStockIn = (objectss) => {
     inserStockIn();
     swal({
@@ -173,10 +185,10 @@ function StockPage() {
         <Row>
           <Col xs={8}>
             <Col>
-              <SearchStock />
+              <SearchStock searchObject={searchObject} handleSearchObject={handleSearchObject} />
             </Col>
             <Col>
-              <ListStockProduct data={data} handleInsertValueStockMoment={handleInsertValueStockMoment} />
+              <ListStockProduct data={data} handleInsertValueStockMoment={handleInsertValueStockMoment} searchObject={searchObject} searchObjectBool={searchObjectBool} />
             </Col>
           </Col>
           <Col>

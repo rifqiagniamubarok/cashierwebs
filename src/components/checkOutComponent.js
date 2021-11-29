@@ -26,7 +26,7 @@ function CheckOutComponent({ data }) {
                   <td>{product.getProduct.name}</td>
                   <td>Rp. {product.getProduct.price}</td>
                   <td>
-                    `{product.quantity} {product.getProduct.unit}`
+                    {product.quantity} {product.getProduct.unit}
                   </td>
                   <td>Rp. {product.total_cost}</td>
                 </tr>

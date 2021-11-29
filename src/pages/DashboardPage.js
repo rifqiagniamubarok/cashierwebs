@@ -86,6 +86,8 @@ function DashboardPage() {
   const [valueOrderTotalCost, setValueOrderTotalCost] = useState(0);
   const [valueOrderTotalPay, setValueOrderTotalPay] = useState(0);
   const [valueOrderPayCostBool, setValueOrderPayCostBool] = useState(true);
+  const [searchObject, setSearchObject] = useState('');
+  const [searchObjectBool, setSearchObjectBool] = useState(false);
 
   useEffect(() => {
     if (cookies.id === undefined) {
@@ -146,6 +148,15 @@ function DashboardPage() {
     const newOrderValue = valueOrderInput.filter((vd) => vd.idx !== idc);
     setValueOrderInput(newOrderValue);
     setValueOrderTotalCost(valueOrderTotalCost - totalprice);
+  };
+
+  const handleSearchObject = (e) => {
+    setSearchObject(e.target.value);
+    if (searchObject === '') {
+      setSearchObjectBool(false);
+    } else {
+      setSearchObjectBool(true);
+    }
   };
 
   const handleOnAddOrder = () => {
@@ -212,10 +223,10 @@ function DashboardPage() {
         <Row>
           <Col xs={7}>
             <c0l>
-              <SearchDashboard />
+              <SearchDashboard searchObject={searchObject} handleSearchObject={handleSearchObject} />
             </c0l>
             <Col>
-              <ListDashboardProduct data={data} handleValueOrderTake={handleValueOrderTake} />
+              <ListDashboardProduct data={data} handleValueOrderTake={handleValueOrderTake} searchObject={searchObject} searchObjectBool={searchObjectBool} />
             </Col>
           </Col>
           <Col>

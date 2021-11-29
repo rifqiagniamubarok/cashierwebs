@@ -69,6 +69,8 @@ function ItemPage() {
   const [purchasePriceReg, setPurchasePriceReg] = useState(0);
   const [priceReg, setPriceReg] = useState(0);
   const [qtyReg, setQtyReg] = useState(0);
+  const [searchObject, setSearchObject] = useState('');
+  const [searchObjectBool, setSearchObjectBool] = useState(false);
 
   const handleChangeUsername = (e) => {
     setNameReg(e.target.value);
@@ -175,6 +177,15 @@ function ItemPage() {
     });
   };
 
+  const handleSearchObject = (e) => {
+    setSearchObject(e.target.value);
+    if (searchObject === '') {
+      setSearchObjectBool(false);
+    } else {
+      setSearchObjectBool(true);
+    }
+  };
+
   if (loading) return '';
   if (error) return `Error! ${error.message}`;
   return (
@@ -184,10 +195,10 @@ function ItemPage() {
         <Row>
           <Col xs={8}>
             <Col>
-              <SearchItem />
+              <SearchItem searchObject={searchObject} handleSearchObject={handleSearchObject} />
             </Col>
             <Col>
-              <ListAdminProduct data={data} handleItemEdit={handleItemEdit} handleDelete={handleDelete} />
+              <ListAdminProduct data={data} handleItemEdit={handleItemEdit} handleDelete={handleDelete} searchObject={searchObject} searchObjectBool={searchObjectBool} />
             </Col>
           </Col>
           <Col>

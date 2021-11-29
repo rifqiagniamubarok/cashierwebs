@@ -22,7 +22,7 @@ function NavbarComponent() {
               <NavDropdown.Item href="#action/3.3">History of purchases</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">History of Sales</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">Profit Report</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Setting</NavDropdown.Item>
+              <NavDropdown.Item href="/settings">Setting</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">About Cashier Web</NavDropdown.Item>
               <NavDropdown.Item href="/" onClick={handleCookieDestroy}>

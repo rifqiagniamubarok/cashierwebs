@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 
-function ListStockProduct({ data, handleInsertValueStockMoment }) {
+function ListStockProduct({ data, handleInsertValueStockMoment, searchObject, searchObjectBool }) {
   // const [valuQtyNew, setValueQtyNew] = useState(1);
 
   return (
@@ -18,7 +18,30 @@ function ListStockProduct({ data, handleInsertValueStockMoment }) {
           </tr>
         </thead>
         <tbody>
-          {data.products.map((product, idx) => (
+          {searchObjectBool === true
+            ? data.products
+                .filter((product) => product.name.includes(`${searchObject}`))
+                .map((product, idx) => (
+                  <tr key={product.id} onClick={() => handleInsertValueStockMoment(idx, product.id, product.name, product.quantity, product.unit)} style={{ cursor: 'pointer' }}>
+                    <td>{idx + 1}</td>
+                    <td>{product.name}</td>
+                    <td>{product.purchase_price}</td>
+                    <td>{product.price}</td>
+                    <td>{product.unit}</td>
+                    <td>{product.quantity}</td>
+                  </tr>
+                ))
+            : data.products.map((product, idx) => (
+                <tr key={product.id} onClick={() => handleInsertValueStockMoment(idx, product.id, product.name, product.quantity, product.unit)} style={{ cursor: 'pointer' }}>
+                  <td>{idx + 1}</td>
+                  <td>{product.name}</td>
+                  <td>{product.purchase_price}</td>
+                  <td>{product.price}</td>
+                  <td>{product.unit}</td>
+                  <td>{product.quantity}</td>
+                </tr>
+              ))}
+          {/* {data.products.map((product, idx) => (
             <tr key={product.id} onClick={() => handleInsertValueStockMoment(idx, product.id, product.name, product.quantity, product.unit)} style={{ cursor: 'pointer' }}>
               <td>{idx + 1}</td>
               <td>{product.name}</td>
@@ -27,7 +50,7 @@ function ListStockProduct({ data, handleInsertValueStockMoment }) {
               <td>{product.unit}</td>
               <td>{product.quantity}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </Table>
     </div>

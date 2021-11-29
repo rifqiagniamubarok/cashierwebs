@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/checkout.css';
-import { Container, Row, Col, Table } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ImPrinter } from 'react-icons/im';
 import { GrDocumentPdf } from 'react-icons/gr';
@@ -33,13 +33,18 @@ const readChekoutOrders = gql`
 function CheckoutPage() {
   const cookies = parseCookies();
   let params = useParams();
+  // const [dataOrderX, setDataOrderX] = useState([]);
 
   const { loading, error, data } = useQuery(readChekoutOrders, {
+    // onCompleted: (data) => {
+    //   setDataOrderX(data);
+    // },
     variables: {
       idc: params.id,
       idv: cookies.id,
     },
   });
+
   // const [countPage, setCountPage] = useState(0);
   const navigate = useNavigate();
 
