@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/checkout.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ImPrinter } from 'react-icons/im';
 import { GrDocumentPdf } from 'react-icons/gr';
 import { parseCookies } from 'nookies';
@@ -32,7 +32,7 @@ const readChekoutOrders = gql`
 
 function CheckoutPage() {
   const cookies = parseCookies();
-  let params = useParams();
+
   // const [dataOrderX, setDataOrderX] = useState([]);
 
   const { loading, error, data } = useQuery(readChekoutOrders, {
@@ -40,7 +40,7 @@ function CheckoutPage() {
     //   setDataOrderX(data);
     // },
     variables: {
-      idc: params.id,
+      idc: cookies.checkout,
       idv: cookies.id,
     },
   });

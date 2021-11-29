@@ -51,7 +51,7 @@ function SettingAccountPage() {
 
   const handkeEditBool = () => {
     setEditBool(!editBool);
-    if (editBool === true) {
+    if (editBool === false) {
       setCompanyNameNew(data.users[0].company_name);
       setUsernameNew(data.users[0].username);
     } else {

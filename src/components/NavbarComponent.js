@@ -11,7 +11,9 @@ function NavbarComponent() {
   return (
     <Navbar className="navbar-component" variant="dark">
       <Container>
-        <Navbar.Brand className="navbar-component-item-font">{cookies.name}</Navbar.Brand>
+        <Navbar.Brand className="navbar-component-item-font" href="/dashboards">
+          {cookies.name}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto navbar-component-item">

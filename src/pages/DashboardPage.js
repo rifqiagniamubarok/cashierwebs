@@ -4,7 +4,7 @@ import ListDashboardProduct from '../components/ListDashboardProduct';
 import NavbarComponent from '../components/NavbarComponent';
 import OrderProduct from '../components/OrderProduct';
 import SearchDashboard from '../components/SearchDashboard';
-import { parseCookies } from 'nookies';
+import { parseCookies, setCookie } from 'nookies';
 import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { gql, useQuery, useMutation } from '@apollo/client';
@@ -203,8 +203,8 @@ function DashboardPage() {
           setValueOrderTotalCost(0);
           setValueOrderTotalPay(0);
           setValueOrderPayCostBool(true);
-
-          navigate(`/checkout/${valueOrderInput[0].orderIdx}`);
+          setCookie(null, 'checkout', valueOrderInput[0].orderIdx);
+          navigate('/checkout');
         } else {
           swal('Your imaginary file is safe!');
         }
