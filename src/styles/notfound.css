@@ -21,3 +21,21 @@
 .notfound-page a:hover {
   color: #214d39;
 }
+.button-setting {
+  text-align: center;
+}
+.button-setting button {
+  font-family: Poppins;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #40916c;
+  width: 110px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+}
+.button-setting button:hover {
+  color: white;
+  background-color: #2c634a;
+}
