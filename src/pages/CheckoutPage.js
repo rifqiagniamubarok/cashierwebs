@@ -1,9 +1,8 @@
 import React from 'react';
 import '../styles/checkout.css';
-import { Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { ImPrinter } from 'react-icons/im';
-import { GrDocumentPdf } from 'react-icons/gr';
+import { IoIosArrowBack } from 'react-icons/io';
 import { parseCookies } from 'nookies';
 import { gql, useQuery } from '@apollo/client';
 import CheckOutComponent from '../components/CheckOutComponent';
@@ -48,24 +47,21 @@ function CheckoutPage() {
   console.log(data.orders[0].orderDetails);
   return (
     <div className="checkout-page">
-      <Container>
-        <Row className="justify-content-md-center checkout-card">
+      <div>
+        <div className="justify-content-md-center checkout-card">
           <CheckOutComponent data={data} />
-        </Row>
-        <Row className="justify-content-md-center">
-          <Col xs={7} className="text-end">
-            <button onClick={() => navigate('/dashboards')} style={{ background: '#ff9d0b', color: 'white', fontWeight: 'border' }}>
-              back
-            </button>
-            <button>
-              <GrDocumentPdf />
+        </div>
+        <div className="justify-content-md-center">
+          <div xs={7} className="text-center">
+            <button onClick={() => navigate('/dashboards')} style={{ background: '#ff9d0b', divor: 'white', fontWeight: 'border' }}>
+              <IoIosArrowBack />
             </button>
             <button onClick={() => window.print()}>
               <ImPrinter />
             </button>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,11 +1,12 @@
 .checkout-page {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
-  padding-top: 100px;
-  padding-bottom: 300px;
+  padding-top: 10px;
+  padding-bottom: 30px;
 }
 .checkout-card {
   padding: 20px;
+  margin: 0px 10%;
 }
 .checkout-page h1 {
   padding: 30px 10px 0px 10px;
@@ -24,12 +25,17 @@
   font-style: normal;
   font-weight: normal;
 }
-.checkout-page Table {
+.checkout-page table {
   margin: 20px 20px;
   font-family: Poppins;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
+  width: 100%;
+  padding: 20px;
+}
+.checkout-page td {
+  padding: 10px;
 }
 .checkout-page p {
   font-family: Poppins;
@@ -37,6 +43,7 @@
   font-size: 18px;
 }
 .checkout-page button {
+  color: white;
   padding: 8px 30px;
   margin-left: 10px;
   background-color: #46cc90;
@@ -45,4 +52,8 @@
 }
 .checkout-page button:hover {
   background-color: #3bac79;
+}
+.output-box {
+  width: 50%;
+  padding-bottom: 20px;
 }
