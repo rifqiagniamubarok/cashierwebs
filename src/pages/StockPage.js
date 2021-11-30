@@ -176,8 +176,6 @@ function StockPage() {
   if (loading) return '';
   if (error) return `Error! ${error.message}`;
 
-  // console.log(stockMoment);
-  // console.log(data.stock_ins.length + 1);
   return (
     <div>
       <NavbarComponent />
