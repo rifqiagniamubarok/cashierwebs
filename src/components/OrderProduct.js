@@ -60,6 +60,7 @@ function OrderProduct({
             <input type="number" value={valueOrderQtyNew} onChange={handleOnChangeValueOrderQtyNew} />
             <button onClick={handleValueOrder}>add</button>
           </span>
+          <span>{valueOrderPrice * valueOrderQtyNew}</span>
         </div>
       ) : (
         <span></span>

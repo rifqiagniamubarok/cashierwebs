@@ -33,19 +33,13 @@ const readChekoutOrders = gql`
 function CheckoutPage() {
   const cookies = parseCookies();
 
-  // const [dataOrderX, setDataOrderX] = useState([]);
-
   const { loading, error, data } = useQuery(readChekoutOrders, {
-    // onCompleted: (data) => {
-    //   setDataOrderX(data);
-    // },
     variables: {
       idc: cookies.checkout,
       idv: cookies.id,
     },
   });
 
-  // const [countPage, setCountPage] = useState(0);
   const navigate = useNavigate();
 
   if (loading) return '';
@@ -66,7 +60,7 @@ function CheckoutPage() {
             <button>
               <GrDocumentPdf />
             </button>
-            <button>
+            <button onClick={() => window.print()}>
               <ImPrinter />
             </button>
           </Col>
