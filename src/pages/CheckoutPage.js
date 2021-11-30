@@ -8,20 +8,23 @@ import { gql, useQuery } from '@apollo/client';
 import CheckOutComponent from '../components/CheckOutComponent';
 
 const readChekoutOrders = gql`
-  query MyQuery($idc: Int!, $idv: Int!) {
+  query MyQuery($idc: Int!, $idv: Int!, $idk: Int!) {
     orders(where: { id: { _eq: $idc } }) {
-      orderDetails {
-        getProduct {
-          name
-          price
-          unit
-        }
-        quantity
-        total_cost
-      }
       total_cost
       total_pay
       createdAt
+    }
+    order_details(where: { order_id: { _eq: $idk } }) {
+      id
+      getProduct {
+        name
+        price
+        purchase_price
+        quantity
+        unit
+      }
+      quantity
+      total_cost
     }
     users(where: { id: { _eq: $idv } }) {
       company_name
@@ -36,6 +39,7 @@ function CheckoutPage() {
     variables: {
       idc: cookies.checkout,
       idv: cookies.id,
+      idk: cookies.checkout,
     },
   });
 

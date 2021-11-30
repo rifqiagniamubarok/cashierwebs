@@ -17,7 +17,7 @@ function CheckOutComponent({ data }) {
               <th>Price</th>
             </tr>
 
-            {data.orders[0].orderDetails.map((product, ind) => (
+            {data.order_details.map((product, ind) => (
               <tr>
                 <td>{ind + 1}</td>
                 <td>{product.getProduct.name}</td>
