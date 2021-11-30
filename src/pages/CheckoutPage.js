@@ -48,7 +48,6 @@ function CheckoutPage() {
   if (loading) return '';
   if (error) return `Error! ${error.message}`;
 
-  console.log(data.orders[0].orderDetails);
   return (
     <div className="checkout-page">
       <div>

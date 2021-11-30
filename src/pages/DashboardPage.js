@@ -215,7 +215,6 @@ function DashboardPage() {
   if (loading) return '';
   if (error) return `Error! ${error.message}`;
 
-  console.log(valueOrderInput);
   return (
     <div>
       <NavbarComponent />
